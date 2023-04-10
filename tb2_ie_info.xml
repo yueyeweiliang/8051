@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!--Created by Liquid XML 2008 (www.liquid-technologies.com) for ALTERA CORPORATION-->
+<ProgramExecution xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+	<QuartusExecution>
+		<AddressBits>32</AddressBits>
+		<ApplicationError>
+		<CommandLine/>		<ErrorMessage></ErrorMessage>
+		<Line>0</Line>
+		<SourceFile>unknown</SourceFile>
+		<StackTrace>
+	   0xa45534: ccl_qtl + 0x5534 (?close@QTL_ZOFSTREAM@@QAIXXZ + 0x34)
+	  0x609c965: synth_sgn + 0x5c965 (?sgn_qic_helper@@YI?AW4SGN_STATE_ENUM@@PAVCMP_FACADE@@AAV?$vector@V?$basic_string@DU?$char_traits@D@_Dinkum_std@@V?$MEM_STL_ALLOCATOR@D@@@_Dinkum_std@@V?$MEM_STL_ALLOCATOR@V?$basic_string@DU?$char_traits@D@_Dinkum_std@@V?$MEM_STL_ALLOCATOR@D@@@_Dinkum_std@@@@@_Dinkum_std@@@Z + 0x50ee5)
+	  0x8993fc3:
+		</StackTrace>
+		<Subsystem>unknown</Subsystem>
+	</ApplicationError>
+	<Compilation>
+			<CompileID>131275314256.141672422402108</CompileID>
+			<DeviceFamily>Cyclone II</DeviceFamily>
+			<IncrementalCompilation>FULL_INCREMENTAL_COMPILATION</IncrementalCompilation>
+			<TopLevelEntityName>QC8051_TOP</TopLevelEntityName>
+		</Compilation>
+		<DateInvoked>2014/11/23 14:30:25</DateInvoked>
+		<ElapsedTime>2</ElapsedTime>
+		<IP>192.168.1.40</IP>
+		<IsInternal>false</IsInternal>
+		<IsQt>false</IsQt>
+		<License>
+			<Edition>Full Version</Edition>
+			<LicenseHostID>001e909e5450</LicenseHostID>
+		</License>
+		<Machine>
+			<CPUCountLogical>2</CPUCountLogical>
+			<CPUCountPhysical>1</CPUCountPhysical>
+			<CPUSpeed>2393</CPUSpeed>
+			<Hostname>20111212-1927</Hostname>
+			<NIC>
+				<Address>001e909e5450</Address>
+			</NIC>
+			<OS>Windows XP</OS>
+			<OSAddressBits>32</OSAddressBits>
+			<OSVersion>5.1</OSVersion>
+			<Platform>windows</Platform>
+			<ScreenResolution>unknown</ScreenResolution>
+			<TotalPhysicalRAM>1015</TotalPhysicalRAM>
+			<TotalVirtualRAM>3080</TotalVirtualRAM>
+		</Machine>
+		<Name>quartus_map</Name>
+		<PeakMemoryUsed>0</PeakMemoryUsed>
+		<ProjectRevision>
+			<ProjectName>Q8051</ProjectName>
+			<Revision>Q8051</Revision>
+		</ProjectRevision>
+		<QuartusInstallation>
+			<InstallationID>131275314256.132369455003796</InstallationID>
+			<Version>
+				<Build>222</Build>
+				<BuildSite>SJ</BuildSite>
+				<BuildSuffix/>
+				<Edition>Full Version</Edition>
+				<ServicePack>0</ServicePack>
+				<VersionNumber>9.1</VersionNumber>
+			</Version>
+		</QuartusInstallation>
+		<QuartusUser>
+			<AlteraUserName/>
+			<FAEContactName/>
+			<TalkbackStatus>
+				<DateSet/>
+				<TalkbackOn>true</TalkbackOn>
+			</TalkbackStatus>
+			<UserID>131275314256.132374691100344</UserID>
+			<UserName>Administrator</UserName>
+		</QuartusUser>
+	</QuartusExecution>
+	<SchemaVersion>schema_2009-08-20</SchemaVersion>
+</ProgramExecution>
+

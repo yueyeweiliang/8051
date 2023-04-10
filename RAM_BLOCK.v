@@ -1,0 +1,91 @@
+`timescale 1ns/1ns
+
+
+
+module RAM_BLOCK (
+					DIR_RD_ADDRS,
+					DIR_WR_ADDRS,
+					WR_DATA,
+					RD_DATA,
+					DIRECT_WR,			   
+					DIRECT_RD,			   
+					PSW43,
+					iR_SEL,				   
+					CPUClock,
+					RD_CLK,
+					WR_EN,
+          MONITOR_CYCL,
+          MONITOR_DIRECT,
+					READ_ADDRS,
+					WRITE_ADDRS);
+
+input   [7:0]	  DIR_RD_ADDRS;
+input   [7:0]	  DIR_WR_ADDRS;
+input           MONITOR_DIRECT;
+input           MONITOR_CYCL;
+input   [7:0]	  WR_DATA;
+output  [7:0]	  RD_DATA;
+input  			    DIRECT_WR;	
+input  			    DIRECT_RD;	
+input   [4:3]	  PSW43;
+input   			  iR_SEL;			
+input			      CPUClock;
+input				    RD_CLK;
+input			      WR_EN;
+output	[7:0]		READ_ADDRS;
+output	[7:0]		WRITE_ADDRS;
+
+reg				    WRITE_EN;
+wire 	[7:0]		RAM_DOUT;			
+wire	[7:0]		READ_ADDRS;
+wire	[7:0]		WRITE_ADDRS;
+wire  [7:0]		IND_ADDRS;
+wire  [3:0]   WRITE_SEL;
+
+assign        WRITE_SEL   = {MONITOR_CYCL, MONITOR_DIRECT, DIR_WR_ADDRS[7], DIRECT_WR};
+assign				READ_ADDRS  = DIRECT_RD ?  DIR_RD_ADDRS[7:0] : IND_ADDRS;
+assign				WRITE_ADDRS = DIRECT_WR ? DIR_WR_ADDRS[7:0] : IND_ADDRS; 
+assign				RD_DATA     = RAM_DOUT;
+
+
+always @(WRITE_SEL or WR_EN) begin
+    casex(WRITE_SEL)
+        4'b1101 : WRITE_EN = WR_EN;
+        4'b10x1 : WRITE_EN = WR_EN;
+        4'b0x01 : WRITE_EN = WR_EN;
+        4'b0xx0 : WRITE_EN = WR_EN;
+        default : WRITE_EN = 1'b0;
+    endcase
+end
+
+// Xilinx Memoey
+/*
+dpsram RAM0(
+	   .clka  (CPUClock),
+	   .ena   (WRITE_EN),
+	   .wea   (1'b1),
+	   .addra (WRITE_ADDRS),
+	   .dina  (WR_DATA),
+	   .douta (),
+	   .clkb  (RD_CLK),
+	   .enb   (1'b1),
+	   .web   (1'b0),
+	   .addrb (READ_ADDRS),
+	   .dinb  (8'b0),
+	   .doutb (RAM_DOUT));
+
+dpsram RAM1(    
+	   .clka  (CPUClock), 
+	   .ena   (WRITE_EN), 
+	   .wea   (1'b1), 
+	   .addra (WRITE_ADDRS), 
+	   .dina  (WR_DATA), 
+	   .douta (), 
+	   .clkb  (RD_CLK), 
+	   .enb   (1'b1), 
+	   .web   (1'b0), 
+	   .addrb ({3'b000, PSW43,2'b00, iR_SEL}), 
+	   .dinb  (8'b0), 
+	   .doutb (IND_ADDRS));
+*/
+endmodule
